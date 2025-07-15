@@ -1,7 +1,6 @@
 import { type ReactNode, type CSSProperties, useEffect, memo, type JSX } from "react";
 import { useForm, type SubmitHandler, type FieldValues, FormProvider } from "react-hook-form";
 import { Button } from "..";
-import React from "react";
 
 interface CustomFormProps<T extends FieldValues> {
   children: ReactNode;

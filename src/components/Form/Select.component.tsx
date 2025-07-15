@@ -33,7 +33,7 @@ export const CustomSelect: React.FunctionComponent<SelectI> = (props: SelectI) =
   const [value, setValue] = useState<string | undefined>(props.defaultValue);
   const [options, setOptions] = useState<SelectOptionI[]>(props.options || []);
 
-  const onChange: SelectProps<string>["onChange"] = (value: string, option: any) => {
+  const onChange: SelectProps<string>["onChange"] = (value: string) => {
     if (props.onChange) props.onChange(value);
     if (!value) {
       props.deleteFilter(props.type);
@@ -57,7 +57,10 @@ export const CustomSelect: React.FunctionComponent<SelectI> = (props: SelectI) =
         .then((fetchedOptions: SelectOptionI[] = []) => {
           setOptions(fetchedOptions);
         })
-        .catch((error) => {});
+        .catch((error) => {
+          console.error("Error fetching options:", error);
+          setOptions([]);
+        });
     }
   }, [props.fetchOptions]);
 

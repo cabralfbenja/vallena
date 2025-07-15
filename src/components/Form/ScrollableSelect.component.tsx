@@ -84,7 +84,7 @@ export const ScrollableSelect: React.FunctionComponent<ScrollableSelectI> = (
     }
   };
 
-  const onChange: SelectProps<string>["onChange"] = (value: string, option: any) => {
+  const onChange: SelectProps<string>["onChange"] = (value: string) => {
     if (props.onChange) props.onChange(value);
     if (!value) {
       props.deleteFilter(props.type);

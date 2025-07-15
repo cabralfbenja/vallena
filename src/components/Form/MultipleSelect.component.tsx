@@ -59,7 +59,10 @@ export const MultiSelect: React.FunctionComponent<SelectI> = (props: SelectI) =>
         .then((fetchedOptions: SelectOptionI[] = []) => {
           setOptions(fetchedOptions);
         })
-        .catch((error) => {});
+        .catch((error) => {
+          console.error("Error fetching options:", error);
+          setOptions([]);
+        });
     }
   }, [props.fetchOptions]);
 

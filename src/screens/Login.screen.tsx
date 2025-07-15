@@ -55,9 +55,13 @@ export const LoginScreen: React.FC<LoginScreenProps> = () => {
       >
         <img src="/vallena_logo_3d.png" style={{ width: "150px", height: "150px" }} />
         <Paragraph
-          text="VALLENA S.A"
+          text="VALLENA"
           variant="h1"
-          style={{ textAlign: "center", marginBottom: "20%" }}
+          style={{
+            textAlign: "center",
+            marginBottom: "20%",
+            fontFamily: "Righteous, cursive",
+          }}
         />
         <FlexBox direction="column" justifyContent="center">
           <CustomForm

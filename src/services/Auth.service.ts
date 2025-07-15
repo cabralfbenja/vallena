@@ -1,38 +1,24 @@
 import type { Auth } from "../models";
-import { FetchService } from "./Fetch.service";
-
-const SERVICE_EP = "/Auth";
 
 export class AuthService {
   static async login(credentials: Auth) {
-    await FetchService.request({
-      endpoint: `${SERVICE_EP}/login`,
-      options: {
-        method: "POST",
-        credentials: "include",
-      },
-      body: credentials,
-    });
+    // Simulación de login: acepta cualquier usuario/contraseña
+    localStorage.setItem("isLoggedIn", "true");
+    return Promise.resolve();
   }
 
   static async logout() {
-    await FetchService.request({
-      endpoint: `${SERVICE_EP}/logout`,
-      options: {
-        method: "GET",
-        credentials: "include",
-      },
-    });
+    // Simulación de logout
+    localStorage.removeItem("isLoggedIn");
+    return Promise.resolve();
   }
 
   static async check() {
-    // await FetchService.request({
-    //   endpoint: `${SERVICE_EP}/validate-session`,
-    //   options: {
-    //     method: "GET",
-    //     credentials: "include"
-    //   },
-    // });
-    // throw new Error("Not implemented");
+    // Simulación de verificación de sesión
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (!isLoggedIn) {
+      throw new Error("No autenticado");
+    }
+    return Promise.resolve();
   }
 }

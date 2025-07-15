@@ -4,6 +4,7 @@ export class AuthService {
   static async login(credentials: Auth) {
     // Simulación de login: acepta cualquier usuario/contraseña
     localStorage.setItem("isLoggedIn", "true");
+    console.log(credentials);
     return Promise.resolve();
   }
 
